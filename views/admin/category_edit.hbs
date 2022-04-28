@@ -1,0 +1,35 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">EDICION DE CATEGORIA</h3>
+		<form method="POST" id="categoryForm" name="categoryForm" action="{{config.adminPath}}/categorias/editar">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<label class="labelAdminForm">Nombre</label>
+					<input type="text" class="form-control" id="category_name" name="category_name" placeholder="Nombre" value="{{category.category}}" />
+					<input type="hidden" id="category_id" name="category_id" value="{{category._id}}" />
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<label class="labelAdminForm">Tiene Envíos?</label>
+
+					<select class="form-control" id="has_delivery" name="has_delivery">
+						<option value="No">No</option>
+						<option value="Si">Si</option>
+					</select>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="col-md-12 table" style="padding:0px;">
+				<input type="submit" value="Guardar" class="btn btn-success" style="width: 100%;" />
+			</div>
+		</form>	
+	</div>
+</section>
+
+{{> footer_admin}}

@@ -1,0 +1,117 @@
+{{> header}}
+<div id="cart" data-cartid="{{cart._id}}" class="displaynone"></div>
+	
+	<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+			<form class="leave-comment" method="POST" id="billingForm" name="billingForm">
+				<div class="row">					
+					<div class="col-md-6 p-b-30">
+						<h4 class="m-text26 p-b-36 p-t-15">Tus datos personales</h4>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="first_name" id="first_name" placeholder="Nombre">
+							<input type="hidden" name="cart_id" value="{{cart_id}}">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="last_name" id="last_name" placeholder="Apellido">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email"  id="email" placeholder="Email">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone" id="phone" placeholder="Telefono">
+						</div>
+
+						<div class="of-hidden size15 m-b-20">
+							<div class="bo4 of-hidden size9 m-b-20 mini-box-billing">
+								<select class="size9 s-text7 p-l-22 p-r-22" type="text" name="document_type" id="document_type" placeholder="Piso">
+									<option value="0">Seleccione</option>
+									<option value="DNI">DNI</option>
+									<option value="DNI">CI</option>
+									<option value="DNI">LE</option>
+									<option value="DNI">LC</option>
+								</select>
+							</div>
+							<div class="bo4 of-hidden size9 m-b-20 mini-box-billing">
+								<input class="size9 s-text7 p-l-22 p-r-22" type="text" name="document_number" id="document_number" placeholder="Dto">
+							</div>
+							<div class="bo4 of-hidden size9 m-b-20 mini-box-billing">
+								Género
+								<select class="size9 s-text7 p-l-22 p-r-22" type="text" name="gender" id="gender">
+									<option value="0">Seleccione</option>
+									<option value="Femenino">Femenino</option>
+									<option value="Masculino">Masculino</option>
+								</select>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="col-md-6 p-b-30">
+						
+						<h4 class="m-text26 p-b-36 p-t-15">La dirección de entrega</h4>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="state" id="state" placeholder="Provincia" value="Buenos Aires" disabled="disabled">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							
+							<select class="size15 s-text7 p-l-22 p-r-22" type="text" name="city" id="city" placeholder="Piso">
+								<option value="0">Seleccione</option>
+								<option value="Gral Rodriguez">Gral Rodriguez</option>
+								<option value="Caseros">Caseros</option>
+								<option value="San Martin">San Martin</option>
+								<option value="Barrio Terravista">Barrio Terravista</option>
+								<option value="Barrio Provincia">Barrio Provincia</option>
+							</select>
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="street_name" id="street_name" placeholder="Calle">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="street_number" id="street_number" placeholder="Altura">
+						</div>
+
+						<div class="of-hidden size15 m-b-20">
+							<div class="bo4 of-hidden size9 m-b-20 mini-box-billing">
+								<input class="size9 s-text7 p-l-22 p-r-22" type="text" name="floor" id="floor" placeholder="Piso">
+							</div>
+							<div class="bo4 of-hidden size9 m-b-20 mini-box-billing">
+								<input class="size9 s-text7 p-l-22 p-r-22" type="text" name="room" id="room" placeholder="Dto">
+							</div>
+							<div class="bo4 of-hidden size9 m-b-20 mini-box-billing">
+								<input class="size9 s-text7 p-l-22 p-r-22" type="text" name="zip_code" id="zip_code" placeholder="Código Postal">
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-md-12">
+						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Comentarios adicionales"></textarea>
+					</div>
+
+					<div id="errorFormBilling" class="alert alert-danger" style="width: 100%;margin: 0 auto; margin-top: 0px; margin-bottom: 20px; display: none;">
+					    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+					    <strong>Error!</strong> Debes completar todos tus datos.
+					</div>
+
+					<div class="col-md-12 text-right" style="display: block; width: 100%">
+						<button type="button" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" style="display: inline-block;width: 180px;" id="billingFormSubmit">
+							Continuar
+						</button>
+					</div>
+
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+{{> footer}}

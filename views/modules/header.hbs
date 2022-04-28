@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {{> analitycs}}
+  {{> metas}}
+  {{> header_resources}}
+  </head>
+<body class="">
+<!-- <body class="animsition"> -->
+
+  <!-- Header -->
+  <header class="header1">
+    <!-- Header desktop -->
+    <div class="container-menu-header">
+      <div class="topbar">
+        <div class="topbar-social">
+          <a href="{{config.social.facebook}}" target="_blank" class="topbar-social-item fa fa-facebook"></a>
+          <a href="{{config.social.instagram}}" target="_blank" class="topbar-social-item fa fa-instagram"></a>
+          <a href="{{config.social.pinterest}}" target="_blank" class="topbar-social-item fa fa-pinterest-p"></a>
+        </div>
+        
+        {{#if_eq brand "geza"}}
+          {{> header_top_geza}}
+        {{else}}
+          {{> header_top_mayfer_wp}}
+        {{/if_eq}}
+        <div class="topbar-child2">
+          <span class="topbar-email">
+            <a class="topbar-child1" href="{{config.links.contact}}">Contactanos!</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="wrap_header">
+        <!-- Logo -->
+        <a href="/home?ref=logo" class="logo">
+          <img src="{{config.sourcePath}}/brands/{{brand}}/images/logos/logo_blanco.png" alt="IMG-LOGO">
+        </a>
+
+        <!-- Menu -->
+        <div class="wrap_menu">
+          <nav class="menu">
+            <ul class="main_menu">
+              <li>
+                <a href="{{config.links.home}}">Inicio</a>
+                <!-- <ul class="sub_menu">
+                  <li><a href="index.html">Homepage V1</a></li>
+                </ul> -->
+              </li>
+
+              <li>
+                <a href="{{config.links.products}}">Productos ▼</a>
+
+                {{#if categories}}
+                  <ul class="sub_menu">
+                  {{#each categories}}
+                    <li><a href="{{config.sitePath}}/productos/{{this.category_seo}}/{{this._id}}" class="s-text13" style="display: inline-block;width: 100%;">
+                      {{this.category}}
+                    </a></li>
+                  {{/each}}  
+                    <li><a href="{{config.sitePath}}/productos" class="s-text13" style="display: inline-block;width: 100%;">
+                      Todos los productos
+                    </a></li> 
+                  </ul>             
+                {{/if}}             
+                {{#if_eq brand "mayfer"}}   
+                  <li>
+                    <a href="{{config.links.description_brand}}">Nosotros</a>
+                  </li>
+                {{/if_eq}}
+              <li>
+                <a href="{{config.links.contact}}">Contacto</a>
+              </li>
+
+              {{#if_eq brand "mayfer"}}   
+              <li>
+                <a href="{{config.links.store}}">Sucursales</a>
+              </li>
+              {{/if_eq}}
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Header Icon -->
+        <div class="header-icons">
+          <!-- <a href="#" class="header-wrapicon1 dis-block">
+            <img src="{{config.sourcePath}}/brands/{{brand}}/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+          </a>
+
+          <span class="linedivide1"></span>
+ -->
+
+
+          <div class="header-wrapicon2">
+            <form class="form-inline md-form form-sm active-cyan-2" method="GET" action="{{config.sitePath}}/search/?" name="formSearch" id="formSearch">
+              <input class="form-control form-control-sm mr-3 w-75 inputSearch" type="text" placeholder="Buscador"
+                aria-label="Search" name="q" id="q">
+                <i class="fa fa-search iconInputSearch" aria-hidden="true"></i>
+            </form>
+          </div>
+
+          <div class="header-wrapicon2">
+            <a href="{{config.cartPath}}" class="header-wrapicon1 dis-block">
+              <img src="{{config.sourcePath}}/brands/{{brand}}/images/icons/cart.png" class="header-icon1 js-show-header-dropdown iconCart" alt="ICON">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Mobile -->
+    <div class="wrap_header_mobile">
+      <!-- Logo moblie -->
+      <a href="{{config.links.home}}?ref=logo" class="logo-mobile">
+        <img src="{{config.sourcePath}}/brands/{{brand}}/images/logos/logo_blanco.png" alt="IMG-LOGO">
+      </a>
+
+      <!-- Button show menu -->
+      <div class="btn-show-menu">
+        <!-- Header Icon mobile -->
+        <div class="header-icons-mobile">
+
+        </div>
+
+        <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="wrap-side-menu" >
+      <nav class="side-menu">
+        <ul class="main-menu">
+          
+
+          <li class="item-menu-mobile">
+            <a href="{{config.links.home}}">Inicio</a>
+          </li>
+
+          <li class="item-menu-mobile">
+            <a href="{{config.links.products}}">Productos ▼</a>
+            <ul class="sub-menu">
+              {{#each categories}}
+                <li class="item-menu-mobile-children"><a href="{{config.sitePath}}/productos/{{this._id}}">{{this.category}}</a></li>
+              {{/each}}
+            </ul>
+            <i class="arrow-main-menu" aria-hidden="true"></i>
+          </li>
+
+          <li class="item-menu-mobile">
+            <a href="{{config.cartPath}}">Carrito</a>
+          </li>
+
+          {{#if_eq brand "mayfer"}}   
+            <li class="item-menu-mobile">
+              <a href="{{config.links.description_brand}}">Nosotros</a>
+            </li>
+          {{/if_eq}}
+          
+
+          <li class="item-menu-mobile">
+            <a href="{{config.links.contact}}">Contacto</a>
+          </li>
+
+          {{#if_eq brand "mayfer"}}   
+            <li class="item-menu-mobile">
+              <a href="{{config.links.store}}">Sucursales</a>
+            </li>
+          {{/if_eq}}
+
+          <li class="item-menu-mobile liSearch">
+
+            <form method="GET" action="{{config.sitePath}}/search/?" name="formSearchMobile" id="formSearchMobile">
+              <div class="input-group md-form form-sm form-2 pl-0 p-t-10">
+                <input class="form-control my-0 py-1 white-border" type="text" placeholder="Buscador" aria-label="Search" name="q" id="q">
+                <div class="input-group-append form-control">
+                  <span class="input-group-text red lighten-3" id="basic-text1">
+                    <i class="fa fa-search iconInputSearchMobile" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </li>
+
+
+{{#if_eq brand "geza"}}   
+          <li class="item-menu-mobile">
+            <a href="https://wa.me/5491158888423?text=Hola,%20necesito%20hacer%20una%20consulta." style="color: white;">
+              <img src="{{config.sourcePath}}/brands/{{brand}}/images/whatsapp.png" width="20" />
+              Pedir por Whatsapp 155-888-8423
+            </a>
+          </li>
+          <li class="item-menu-mobile">
+            <a href="https://wa.me/5491157502313?text=Hola,%20necesito%20hacer%20una%20consulta." style="color: white;">
+              <img src="{{config.sourcePath}}/brands/{{brand}}/images/whatsapp.png" width="20" />
+              Pedir por Whatsapp 155-750-2312
+            </a>
+          </li>
+{{/if_eq}}
+
+        </ul>
+      </nav>
+    </div>
+  </header>

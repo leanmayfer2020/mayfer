@@ -1,0 +1,136 @@
+<html lang="en"><head>
+    {{> header_resources}}
+    <link rel="stylesheet" type="text/css" href="{{config.sourcePath}}/brands/{{brand}}/css/letter.css">
+  </head>
+  <body>
+
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="jumbotron">
+          <img src="{{config.sourcePath}}/brands/{{brand}}/images/letter/geza-letter-mail.jpg" class="imgLetter" />
+        </div>
+
+        <div class="col-3 col-md-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group list-group-leter">
+            <h1>CONTACTO</h1>
+            <div class="hrLetter"></div>
+
+            <ul>
+                <li><a href="http://www.geza.com.ar">Geza.com.ar</a></li>
+                {{#each contacts}}
+                  <li class="liLetter">{{this}}</li>
+                {{/each}}
+            </ul>
+
+          </div>
+        </div>
+        <div class="col-9 col-md-9">
+          <div class="row">
+              <h1>{{customer}}</h1> 
+              <div class="hrLetterDos"></div>
+              <p>
+                  GeZa es un emprendimiento destinado a cubrir las necesidades de limpieza de instituciones y asimismo de particulares.- 
+              </p>
+              <p> </p>
+              <p>
+                  Este proyecto surge a raíz de una necesidad de los usuarios frente al constante incremento en los precios de los articulos de limpieza del mercado y a fin de brindar una alternativa económica y efectiva con productos de primera calidad y de elaboración propia. 
+              </p>
+              <p>
+                La fabricación de nuestros productos se viene sosteniendo hace ya mas de 10 años con ventas en volúmenes adaptados a la necesidad de cada cliente.- 
+              </p>
+              <p>
+                Nuestro objetivo es ofrecer al consumidor artículos de limpieza y desinfeccion, fabricados con materia prima de primera calidad a fin de elaborar un producto de excelencia sin perder de vista el cuidado del planeta. 
+              </p>
+              <p>
+                Trabajamos constantemente para garantizar la relación precio producto, teniendo como objetivo primordial un cliente satisfecho.
+              </p>
+
+              <p>Atentamente,</p>
+              <br>
+              <p>
+                <img src="{{config.sourcePath}}/brands/{{brand}}/images/letter/geza-gota-letter-mail.jpg" class="logoLetterFirma" />
+                GeZa.
+                
+              </p>
+
+          </div><!--/row-->
+        </div><!--/span-->
+
+        <!--/span-->
+      </div><!--/row-->
+      <div class="footer">
+        
+      </div>
+      <hr>
+
+      <footer>
+        <p>© GeZa 2019</p>
+      </footer>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="jumbotron">
+          <img src="{{config.sourcePath}}/brands/{{brand}}/images/letter/geza-letter-mail.jpg" class="imgLetter" />
+        </div>
+
+        <div class="col-3 col-md-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group list-group-leter">
+            <h1>CONTACTO</h1>
+            <div class="hrLetter"></div>
+
+            <ul>
+                <li class="liLetter"><a href="http://www.geza.com.ar">Geza.com.ar</a></li>
+                {{#each contacts}}
+                  <li class="liLetter">{{this}}</li>
+                {{/each}}
+            </ul>
+
+          </div>
+        </div>
+        <div class="col-9 col-md-9">
+          <div class="row">
+              <h1>{{customer}}</h1> 
+              <div class="hrLetterDos"></div>
+              <p class="titleLetter">
+                  Listado de precios y productos
+              </h3>
+              <p> </p>
+              <p>
+                <ul class="ul-products-Letter">
+                  {{#each products}}
+                    <li class="li-products-Letter"><p class="pFooter1">- {{this.description}}</p><p class="pFooter2">$ {{this.price}}</p></li>
+                  {{/each}}
+                </ul>
+              </p>
+          </div><!--/row-->
+        </div><!--/span-->
+
+        <!--/span-->
+      </div><!--/row-->
+      <div class="footer">
+        
+      </div>
+      <hr>
+
+      <footer>
+        <p>© GeZa 2019</p>
+      </footer>
+
+    </div>
+    {{> footer_resources}}
+  </body>
+</html>

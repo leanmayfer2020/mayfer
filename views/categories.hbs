@@ -1,0 +1,101 @@
+{{> header}}
+	<!-- Content page -->
+	<section class="bgwhite p-t-20 p-b-65">
+		<div class="container">
+			<div class="row">
+
+				{{#if_eq device "mobile"}}
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-20">
+					<div class="search-product pos-relative bo4 of-hidden">
+						<form action="{{config.sitePath}}/productos/buscador" method="POST">
+							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="q" placeholder="Buscar Productos...">
+
+							<button type="submit" class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
+							</button>
+						</form>
+					</div>
+				</div>
+				{{/if_eq}}
+
+				{{#if_eq device "desktop"}}
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+					<div class="leftbar p-r-20 p-r-0-sm">
+						{{> product_list_categories}}
+
+						<div class="search-product pos-relative bo4 of-hidden">
+							<form action="{{config.sitePath}}/productos/buscador" method="POST">
+								<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="q" placeholder="Buscar Productos...">
+
+								<button type="submit" class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+									<i class="fs-12 fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				{{/if_eq}}
+				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+					
+					<div class="flex-sb-m flex-w p-b-35">
+						<div class="flex-w" {{#if_eq device "mobile"}} style="width: 100%" {{/if_eq}}>
+							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5" {{#if_eq device "mobile"}} style="width: 100%" {{/if_eq}}>
+								<select class="selection-2" name="sorting" id="sorting">
+									<option value="default">Relevancia</option>
+									<option value="price">Precio: Menor a Mayor</option>
+									<option value="-price">Precio: Mayor a Menor</option>
+
+									<option value="created">Novedades: Menor a Mayor</option>
+									<option value="-created">Novedades: Mayor a Menor</option>
+
+									<option value="description">Nombre: A => Z</option>
+									<option value="-description">Nombre: Z => A</option>
+								</select>
+							</div>
+						</div>
+
+						{{#if_eq device "mobile"}}
+							<span class="s-text8 p-t-5 p-b-5" style="text-align: center;width: 100%;">
+								Mostrando {{counter}} resultados
+							</span>
+						{{else}}
+							<span class="s-text8 p-t-5 p-b-5">
+								Mostrando {{counter}} resultados
+							</span>
+						{{/if_eq}}
+					</div>
+					
+
+					<!-- Product -->
+					<div class="row">
+
+						{{> product_list}}
+
+					</div>
+
+					<!-- Pagination -->
+					<!-- <div class="pagination flex-m flex-w p-t-26">
+						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+	
+{{> footer}}

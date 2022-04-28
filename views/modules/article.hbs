@@ -1,0 +1,34 @@
+{{#each products}}
+<tr class="table-row">
+	<td class="column-1">
+		<div class="cart-img-product b-rad-4 o-f-hidden">
+			<img src="{{this.main_image}}" alt="{{this.description}}">
+		</div>
+	</td>
+	<td class="column-2">{{this.description}}</td>
+	<td class="column-3">${{formatPriceNumber this.web_price}}</td>
+	<td class="column-4">
+		<div class="flex-w bo5 of-hidden w-size17">
+			<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2" data-salableid="{{this.salable_id}}" data-quantity="{{this.quantity}}" data-action="menor">
+				<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+			</button>
+
+			<input class="size8 m-text18 t-center num-product" type="number" name="num-product-{{this.salable_id}}" id="num-product-{{this.salable_id}}" value="{{this.quantity}}" disabled="disabled">
+
+			<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2" data-salableid="{{this.salable_id}}" data-quantity="{{this.quantity}}" data-action="mayor">
+				<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+			</button>
+		</div>
+	</td>
+	<td class="column-5">
+		<div id="subtotal-{{this.salable_id}}" style="display: inline-block;">
+			${{doMath "*" this.web_price this.quantity}}
+		</div>
+	</td>
+	<td class="column-5">
+		<a href="{{../config.cartPath}}/producto/eliminar?product_id={{this.salable_id}}&cart_id={{../cart._id}}">
+			<img src="{{../config.sourcePath}}/brands/{{../brand}}/images/icons/trash.png" class="icon-trash" style="width: 15px;margin-top: -5px;" />
+		</a>
+	</td>
+</tr>
+{{/each}}

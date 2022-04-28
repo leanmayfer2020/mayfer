@@ -1,0 +1,110 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container"style="border: 1px solid gray;border-radius: 10px;">
+		<h3 class="titleAdmin">DETALLE DE PEDIDO</h3>
+
+	    <div class="row table" style="border:none;">
+	    	<p style="font-weight: bold;color: black;text-align: center;width: 100%;">Nro de Pedido #{{cart._id}}</p>
+	    	<p style="font-weight: bold;color: black;text-align: center;width: 100%;">{{cart.my_date}}</p>
+    	</div>
+    
+	    <div class="row">
+			{{#each cart.products}}
+				<div class="col-md-12 line-table">
+					<div class="col-md-2 div_column-1">
+						<img src="{{this.main_image}}" style="width: 70px;" />
+					</div>
+					<div class="col-md-4 div_column-2">
+						<div class="block2-txt p-t-20">{{this.description}}</div>
+					</div>
+					<div class="col-md-2 div_column-3">
+						<div class="block2-txt p-t-20">{{this.quantity}}</div>
+					</div>
+					<div class="col-md-2 div_column-3">
+						<div class="block2-txt p-t-20">${{this.web_price}}</div>
+					</div>
+					<div class="col-md-2 div_column-3">
+						<div class="block2-txt p-t-20">${{doMath "*" this.web_price this.quantity}}</div>
+					</div>
+				</div>
+			{{/each}}
+			<div class="col-md-12 line-table">
+				<div class="col-md-10 div_column-2">
+					<div class="block2-txt p-t-20">Costo de Envío</div>
+				</div>
+				<div class="col-md-2 div_column-3">
+					<div class="block2-txt p-t-20">${{cart.delivery_cost}}</div>
+				</div>
+			</div>
+			<div class="col-md-12 line-table">
+				<div class="col-md-10 div_column-2">
+					<div class="block2-txt p-t-20">Total</div>
+				</div>
+				<div class="col-md-2 div_column-3">
+					<div class="block2-txt p-t-20">${{doMath "+" cart.total_price cart.delivery_cost}}</div>
+				</div>
+			</div>
+		</div>
+		
+		
+
+		<section class="bgwhite p-b-60" style="padding-top:20px">
+		<div class="container">
+				<div class="row">	
+					<div class="col-md-6">
+						<h4 class="m-text26 p-b-36 p-t-15">Tus datos personales</h4>
+						<div class="form-group">
+							<p class="thanksRow1">Titular</p>
+							<p class="thanksRow2">{{cart.billing_name}} {{cart.billing_lastname}}</p>
+						</div>
+						<div class="form-group">
+							<p class="thanksRow1">Email</p>
+							<p class="thanksRow2">{{cart.billing_email}}</p>
+						</div>
+
+						<div class="form-group">
+							<p class="thanksRow1">Teléfono</p>
+							<p class="thanksRow2">{{cart.billing_phone}}</p>
+						</div>
+						<div class="form-group">
+							<p class="thanksRow1">Documento</p>
+							<p class="thanksRow2">{{cart.billing_type_document}} {{cart.billing_document_number}}</p>
+						</div>
+						<div class="form-group">
+							<p class="thanksRow1">Género</p>
+							<p class="thanksRow2">{{cart.billing_gender}}</p>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<h4 class="m-text26 p-b-36 p-t-15">Dirección de entrega</h4>
+						<div class="form-group">
+							<p class="thanksRow1">Calle</p>
+							<p class="thanksRow2">{{cart.delivery_street_name}}</p>
+						</div>
+						<div class="form-group">
+							<p class="thanksRow1">Altura</p>
+							<p class="thanksRow2">{{cart.delivery_street_number}}</p>
+						</div>
+						<div class="form-group">
+							<p class="thanksRow1">Piso</p>
+							<p class="thanksRow2">{{cart.delivery_floor}}</p>
+							<p class="thanksRow1" style="margin-left: 20px;">Depto</p>
+							<p class="thanksRow2">{{cart.delivery_room}}</p>
+						</div>
+						<div class="form-group">
+							<p class="thanksRow1">Localidad</p>
+							<p class="thanksRow2">{{cart.delivery_city}}</p>
+						</div>
+						<div class="form-group">
+							<p class="thanksRow1">Código Postal</p>
+							<p class="thanksRow2">{{cart.delivery_zip_code}}</p>
+						</div>
+					</div>
+				</div>
+		</div>
+	</section>
+	</div>
+</section>
+{{> footer_admin}}

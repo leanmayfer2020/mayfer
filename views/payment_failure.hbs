@@ -1,0 +1,19 @@
+{{> header_resources}}
+
+
+<section class="bgwhite p-t-66 p-b-60">
+	<div class="container" style="text-align: center;">
+		<div class="alert alert-danger" style="width: 400px; margin: 0px auto 20px; display: block;text-align: center;margin-top: 10px;">
+		    <strong>Atención!</strong> Su compra ha sido abandonada.
+		</div>
+		<a style="color: blue;" href="{{config.sitePath}}" target="_parent">Ir al inicio</a>
+
+		{{#if cart_id}}
+			<br><br>
+			<a style="color: blue;" href="{{config.sitePath}}/carrito/duplicate/{{cart_id}}" target="_parent">Retomar compra</a>
+		{{/if}}
+
+	</div>
+</section>
+
+{{> footer_resources}}

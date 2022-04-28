@@ -1,0 +1,26 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">NUEVO ENVIO</h3>
+		<form method="POST" id="deliveryForm" name="deliveryForm" action="{{config.adminPath}}/envios/nuevo">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-6">
+					<label class="labelAdminForm">Localidad</label>
+					<input type="text" class="form-control" id="delivery_city" name="delivery_city" placeholder="Nombre" />
+				</div>
+				<div class="col-md-2">
+					<label class="labelAdminForm">Costo</label>
+					<input type="text" class="form-control" value="0" disabled="disabled" id="delivery_cost" name="delivery_cost" placeholder="Costo" />
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="col-md-12 table" style="padding:0px;">
+				<input type="submit" value="Guardar" class="btn btn-success" style="width: 100%;" />
+			</div>
+		</form>	
+	</div>
+</section>
+
+{{> footer_admin}}

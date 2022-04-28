@@ -1,0 +1,24 @@
+{{#each data}}
+
+  <div class="col-md-4 card-mp">
+    <a href="" data-toggle="modal" data-leyend="{{this.issuer.name}} - {{#if_eq this.recommended_message null}}{{#each this.payment_methods}}{{this.name}}{{/each}} {{else}}{{this.recommended_message}}{{/if_eq}}" data-target="#exampleModalWindow" data-id="{{this.id}}" class="exampleModal">
+      <div class="img-container">
+        <img src="{{this.picture}}" width="140" alt="" title="" onerror="this.src='{{../no_img}}'">
+      </div>
+      <ul>
+        <li class="info">{{this.issuer.name}}</li>
+        <li class="cuotas">
+          {{#if_eq this.recommended_message null}}
+            {{#each this.payment_methods}}
+              {{this.name}}
+            {{/each}} 
+          {{else}}
+            {{this.recommended_message}}
+          {{/if_eq}}
+        </li>
+        <li class="date">Hasta el {{this.date_expired}}</li>
+      </ul>
+    </a>
+  </div>
+  
+{{/each}}

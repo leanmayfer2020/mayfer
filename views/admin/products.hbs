@@ -1,0 +1,35 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">LISTADO DE PRODUCTOS</h3>
+			<div class="col-md-12 table" style="padding:0px;">
+				<a href="{{config.adminPath}}/productos/nuevo" value="toggle" class="btn btn-success" style="width: 100%;">AGREGAR NUEVO PRODUCTO</a>
+			</div>
+			<div class="row table">
+				{{#each products}}
+					<div class="col-md-12 line-table">
+						<div class="col-md-2 div_column-1">
+							<a href="{{../config.sitePath}}/producto/{{this.salable_id}}" target="_blank">
+								<img src="{{this.images.0.url}}" style="width: 70px;" />
+							</a>
+						</div>
+						<div class="col-md-2 div_column-2">
+							<div class="block2-txt p-t-20">{{this.description}}</div>
+						</div>
+						<div class="col-md-2 div_column-3">
+							<div class="block2-txt p-t-20">${{this.web_price}}</div>
+						</div>
+						<div class="col-md-2 div_column-4 buttonEdition">
+                            <a href="{{../config.adminPath}}/productos/editar/{{this._id}}" value="toggle" class="btn btn-info">Editar</a>
+                        </div>
+                        <div class="col-md-2 div_column-5 buttonEdition">
+                            <a href="{{../config.adminPath}}/productos/eliminar/{{this._id}}" value="toggle" class="btn btn-danger">Eliminar</a>
+                        </div>
+					</div>
+				{{/each}}
+			</div>
+	</div>
+</section>
+
+{{> footer_admin}}

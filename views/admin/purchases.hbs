@@ -1,0 +1,33 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">LISTADO DE PEDIDOS</h3>
+			<div class="row table" style="max-width: 100% !important;">
+				{{#each purchases}}
+					<div class="col-md-12 line-table">
+						<div class="col-md-2 div_column-1">
+							<div class="block2-txt p-t-20">{{this.my_date}}</div>
+						</div>
+						<div class="col-md-2 div_column-2">
+							<div class="block2-txt p-t-20">{{this.billing_name}}</div>
+						</div>
+						<div class="col-md-2 div_column-3">
+							<div class="block2-txt p-t-20">{{this.billing_lastname}}</div>
+						</div>
+						<div class="col-md-2 div_column-3">
+							<div class="block2-txt p-t-20">{{this.delivery_city}}</div>
+						</div>
+						<div class="col-md-2 div_column-3">
+							<div class="block2-txt p-t-20">${{this.total_price}}</div>
+						</div>
+						<div class="col-md-2 div_column-4 buttonEdition">
+                            <a href="{{../config.adminPath}}/pedidos/{{this._id}}" value="toggle" class="btn btn-info">Ver Detalle</a>
+                        </div>
+					</div>
+				{{/each}}
+			</div>
+	</div>
+</section>
+
+{{> footer_admin}}

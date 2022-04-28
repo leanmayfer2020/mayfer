@@ -1,0 +1,235 @@
+{{> header}}
+
+	<style type="text/css">
+		.liDetailMobile{
+			display:inline-block;
+		}
+		.ulDetailMobile{
+		    width: 100%;
+    		text-align: center;
+		}
+	</style>
+
+	{{> breadcrumb}}
+
+	<!-- Product Detail -->
+	<div class="container bgwhite p-t-35 p-b-80">
+		<div class="flex-w flex-sb">
+
+			{{#if product.description}}
+			<div class="w-size13 p-t-30 respon5">
+				
+				<div class="row">
+					<div class="col-md-2">
+						<ul {{#if_eq device "mobile"}} class="ulDetailMobile" {{/if_eq}}>
+							{{#if product.images.0.url}}
+							<li style="margin-bottom:10px;" {{#if_eq device "mobile"}} class="liDetailMobile" {{/if_eq}}>
+								<img src="{{product.images.0.url}}" width="100" id="image1" style="border: 1px solid gray;" />
+							</li>
+							{{/if}}
+							{{#if product.images.1.url}}
+							<li style="margin-bottom:10px;" {{#if_eq device "mobile"}} class="liDetailMobile" {{/if_eq}}>
+								<img src="{{product.images.1.url}}" width="100" id="image2" style="border: 1px solid gray;" />
+							</li>
+							{{/if}}
+							{{#if product.images.2.url}}
+							<li style="margin-bottom:10px;" {{#if_eq device "mobile"}} class="liDetailMobile" {{/if_eq}}>
+								<img src="{{product.images.2.url}}" width="100" id="image3" style="border: 1px solid gray;" />
+							</li>
+							{{/if}}
+						</ul>
+					</div>
+
+					<div class="col-md-10">
+						{{#if_eq device "mobile"}}
+							<img src="{{product.images.0.url}}" style="width: 100%;max-width: 480px;border: 1px solid gray;"  id="masterImage">
+						{{else}}
+							<img src="{{product.images.0.url}}" style="width: 100%;max-width: 480px;margin-left: 30px;border: 1px solid gray;" class="masterImageClass" id="masterImage">
+						{{/if_eq}}
+						<p class="detail"></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="w-size14 p-t-30 respon5">
+				<h4 class="product-detail-name m-text16 p-b-13">
+					{{product.description}}
+				</h4>
+
+				{{#if product.web_price}}
+					<span class="m-text17">
+						${{formatPriceNumber product.web_price}}
+					</span>
+				{{/if}}
+
+
+				<div class="p-t-40">
+					<span>
+						<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4" style="bottom:10px;    position: relative;">
+							Promociones
+						</h5>
+						<i class="fa fa-credit-card" aria-hidden="true" style="font-size: 24px;margin-right:10px;color: #555555;"></i>
+						<span class="l-text9 m" style="font-size: 16px;color: #555555;">
+						Tarjetas de Crédito hasta en <br />
+						12 cuotas sin interés {{#IfNoPrice product.web_price}} de ${{formatPriceNumber productPriceInstallments }} {{/IfNoPrice}}
+						</span>
+					</span>
+				</div>	
+
+				<div class="p">
+					<span style="font-size: 16px;color: #555555;">
+						30% de Descuento en Efectivo o Transferencia
+						{{#IfNoPrice product.web_price}} ${{product.price}} {{/IfNoPrice}}
+					</span>
+				</div>
+
+				<div class="p-t-20">
+					<div style="float: left; width:38px">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="25" viewBox="0 0 32 25" alt="retiro" style="color:#555555; height: 30px; width: 30px;"><g fill="none" fill-rule="evenodd"><g fill="currentcolor"><path d="M28.857 6.615c-.171 1.003-.785 2.267-1.725 2.671-1.082.467-2.294.158-3.239-.824l-.014-.014c-.164-.163-.377-.24-.59-.208-.23.028-.429.158-.55.36-.786 1.306-2.048 2.123-3.465 2.24-1.345.112-2.622-.438-3.517-1.5-.281-.335-.832-.336-1.116.002-.818.974-1.957 1.514-3.164 1.514-.115 0-.23-.005-.344-.014-1.42-.118-2.686-.935-3.472-2.241-.121-.203-.32-.335-.547-.362-.224-.028-.446.055-.603.218l-.125.126c-.939.902-2.123 1.154-3.17.676-.917-.419-1.51-1.663-1.674-2.644l-.025-.154h27.366l-.026.154zm-2.465 15.811l-6.922-.001v-7.07c0-.404-.334-.732-.746-.732l-7.083.015c-.338.067-.59.369-.59.717l-.002 7.07-7.042.001v-11.36l.13.006c.055.002.109.004.163.004.862 0 1.725-.29 2.507-.846l.092-.065.074.087c1.03 1.24 2.498 2.026 4.027 2.157 1.5.13 2.966-.354 4.119-1.369l.08-.07.082.07c1.161 1.021 2.624 1.5 4.126 1.368 1.524-.13 2.988-.915 4.016-2.152l.074-.089.093.067c.824.593 1.737.891 2.672.843l.131-.005-.001 11.354zm-8.416-.001h-5.434v-6.228h5.434v6.228zM3.724 1.574h22.95l1.778 3.313H1.947l1.777-3.313zM30.39 5.92l-.076-.247-2.506-5.24C27.68.166 27.424 0 27.14 0H3.26c-.284 0-.539.166-.667.433L.048 5.773.04 5.8c-.011.04-.022.083-.034.145L0 6.03l.004.568c.064 1.762.976 3.266 2.438 4.019l.07.036.014 12.709c.096.56.718.639 1.378.639h23.755v-.22l.032-.036c.126-.147.195-.335.195-.531V10.659l.07-.036c1.508-.781 2.444-2.402 2.444-4.23l-.011-.473z" transform="translate(-450 -327) translate(326 323.24) translate(103 4.43) translate(21.8)"></path></g></g></svg>
+					</div>
+					<div style="line-height: 40px;">
+						<span class="l-text9 m" style="font-size: 16px;color: #555555;">Disponible en todas las <a href="/sucursales" style="color: #007bff">sucursales</a></span>
+					</div>
+				</div>
+
+
+				<!--  -->
+				<div class="p-t-20 p-b-20">
+					<div class="flex-w p-t-10"><!-- flex-r-m -->
+						<div class="w-size16 flex-m flex-w">
+
+							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
+								<!-- Button -->
+								{{#if product.web_price}}
+									<form action="{{config.sitePath}}/carrito" method="POST">
+										<input type="hidden" value="{{product.salable_id}}" name="salable_id">
+										<button type="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" style="height: 40px;">
+											Comprar
+										</button>
+									</form>
+								{{else}}
+									<form action="{{config.sitePath}}/contacto" method="GET">
+										<input type="hidden" value="{{product.salable_id}}" name="salable_id">
+										<button type="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" style="height: 40px;">
+											Consultar
+										</button>
+									</form>
+								{{/if}}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="p-t-25 p-b-20">
+					<span class="s-text8 m-r-35">SKU: {{product.salable_id}}</span>
+					<span class="s-text8">Categoria: {{product.category_name}}</span>
+				</div>
+
+				<!--  -->
+				<div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
+					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+						Descripcion
+						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+					</h5>
+
+					<div class="dropdown-content dis-none p-t-15 p-b-23">
+						<p class="s-text8">
+							{{product.summary}}
+						</p>
+					</div>
+				</div>
+			</div>
+			{{else}}
+				<div class="container">
+					<h3 style="text-align: center;">Ups!</h3>
+					<div class="row">
+						<p style="text-align: center;width: 100%">Producto no encontrado</p>
+					</div>
+				</div>
+			{{/if}}
+		</div>
+	</div>
+
+
+	{{> related_products}}
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	<script src="{{config.sourcePath}}/js/Drift.js"></script>
+
+	{{#if_eq device "mobile"}}
+
+
+	<script>
+
+		$("#image1").click(function(){
+			var image_route = $("#"+$(this).attr('id')).attr("src");
+			$("#masterImage").attr("src", image_route);
+			$("#masterImage").attr("data-zoom", image_route);
+		});
+		$("#image2").click(function(){
+			var image_route = $("#"+$(this).attr('id')).attr("src");
+			$("#masterImage").attr("src", image_route);
+			$("#masterImage").attr("data-zoom", image_route);
+		});
+		$("#image3").click(function(){
+			var image_route = $("#"+$(this).attr('id')).attr("src");
+			$("#masterImage").attr("src", image_route);
+			$("#masterImage").attr("data-zoom", image_route);
+		});
+
+	</script>
+
+	{{else}}
+
+	<script>
+
+		$("#image1").click(function(){
+			var image_route = $("#"+$(this).attr('id')).attr("src");
+			$("#masterImage").attr("src", image_route);
+			$("#masterImage").attr("data-zoom", image_route);
+			new Drift(document.querySelector(".masterImageClass"), {
+			  paneContainer: document.querySelector(".detail")
+			});
+		});
+		$("#image2").click(function(){
+			var image_route = $("#"+$(this).attr('id')).attr("src");
+			$("#masterImage").attr("src", image_route);
+			$("#masterImage").attr("data-zoom", image_route);
+			new Drift(document.querySelector(".masterImageClass"), {
+			  paneContainer: document.querySelector(".detail")
+			});
+		});
+		$("#image3").click(function(){
+			var image_route = $("#"+$(this).attr('id')).attr("src");
+			$("#masterImage").attr("src", image_route);
+			$("#masterImage").attr("data-zoom", image_route);
+			new Drift(document.querySelector(".masterImageClass"), {
+			  paneContainer: document.querySelector(".detail")
+			});
+		});
+
+		$(document).ready(function(){
+			var image_route = $("#image1").attr("src");
+			$("#masterImage").attr("src", image_route);
+			$("#masterImage").attr("data-zoom", image_route);
+			new Drift(document.querySelector(".masterImageClass"), {
+			  paneContainer: document.querySelector(".detail")
+			});
+		});
+
+	</script>
+
+	{{/if_eq}}
+{{> footer}}

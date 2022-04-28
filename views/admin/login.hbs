@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{> header_resources}}
+</head>
+<body class="">
+<form method="POST">
+    <section class="container gb-box">
+        <div id="tp-form-tph" style="top: 0px;position: relative;">
+            <div id="tp-content-form" style="text-align: center;">
+
+                <img src="{{config.sourcePath}}/brands/{{brand}}/images/logos/logo.png" alt="geza.com.ar" class="logoIndexTemp" style="width: 200px;">
+
+                <h2 class="tp-label"></h2>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+                        <label class="subtitles" style="width: 150px;">Usuario<span class="required">*</span> </label>
+                        <input id="apynTxt" name="user" class="form-control" value="" style="width: 200px; display: inline !important;" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+                        <label class="subtitles" style="width: 150px;">Clave<span class="required">*</span> </label>
+                        <input type="password" id="apynTxt" name="pass" class="form-control" value="" style="width: 200px; display: inline !important;" />
+                    </div>
+                </div>
+
+                {{#if error}}
+                    <div class="alert alert-danger fade in alert-dismissable" style="width: 460px;margin: 0 auto;">
+                        <strong>Error! </strong> {{error}}
+                    </div>
+                {{/if}}
+                <button id="purchaseButton" type="submit" class="btn btn-primary btn-lg" style="margin-top: 20px;">Ingresar</button>
+            </div>
+        </div>
+    </section>
+</form>
+</body>
+</html>

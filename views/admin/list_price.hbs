@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    {{> header_resources}}
+    <link rel="stylesheet" type="text/css" href="{{config.sourcePath}}/brands/{{brand}}/css/letter.css">
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="jumbotron" style="margin-bottom: 0px;padding-bottom: 10px;">
+          <img src="{{config.sourcePath}}/brands/{{brand}}/images/letter/geza-letter-mail.jpg" class="imgLetter" style="float: left;margin-bottom:0px;padding-left:0px;" />
+        </div>
+
+        <div class="col-12 col-md-12">
+          <div class="row">
+              <div class="hrLetterDos" style="width: 100%"></div>
+              <p class="titleLetter" style="margin-bottom: 0px;">
+                  Listado de precios y productos actualizados al {{vigencia}}
+              </h3>
+              <p> </p>
+              <p>
+                <ul class="ul-products-Letter">
+                  {{#each products}}
+                    <li class="li-products-Letter"><p class="pFooter1">- {{this.description}}</p><p class="pFooter2">$ {{this.price}}</p></li>
+                  {{/each}}
+                </ul>
+              </p>
+          </div><!--/row-->
+        </div><!--/span-->
+
+        <!--/span-->
+      </div><!--/row-->
+      <div class="footer" style="margin-top:40px;"></div>
+      <hr>
+
+      <footer style="float: left;">
+        <p>Pedidos al 156-456-3879 | 155-750-2312 | 155-888-8423 ● www.geza.com.ar ● © GeZa 2019</p>
+      </footer>
+
+    </div>
+    {{> footer_resources}}
+  </body>
+</html>

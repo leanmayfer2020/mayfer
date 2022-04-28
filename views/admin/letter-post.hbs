@@ -1,0 +1,160 @@
+{{> header_admin}}
+    <link rel="stylesheet" type="text/css" href="{{config.sourcePath}}/brands/{{brand}}/css/letter.css">
+  
+    <form action="" method="post" name="letterForm" id="letterForm" >
+      <div class="container" id="formLetterAnchor">
+
+        <div class="row row-offcanvas row-offcanvas-right">
+
+          <div class="jumbotron">
+            <img src="{{config.sourcePath}}/brands/{{brand}}/images/logos/LOGO-MASTER-GEZA.png" class="imgLetter" />
+          </div>
+
+          <div class="col-3 col-md-3 sidebar-offcanvas" id="sidebar">
+            <div class="list-group list-group-leter">
+              <h1>CONTACTO</h1>
+              <div class="hrLetter"></div>
+
+              <ul>
+                  <li>www.geza.com.ar</li>
+                  <li><input type="checkbox" id="contacts1" name="contacts" value="156-456-3879" />156-456-3879</li>
+                  <li><input type="checkbox" id="contacts2" name="contacts" value="155-750-2312" />155-750-2312</li>
+                  <li><input type="checkbox" id="contacts3" name="contacts" value="155-888-8423" />155-888-8423</li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="col-9 col-md-9">
+            <div class="row">
+                <h1>
+                  <input type="text" name="customer" id="customer" placeholder="A quien corresponda" class="form-control form-controlInput" />
+
+                  <button type="button" id="formLetterButton" class="btn btn-primary form-controlButton">Enviar</button>
+                </h1> 
+                <div class="hrLetterDos"></div>
+                <p>
+                    GeZa es un emprendimiento destinado a cubrir las necesidades de limpieza de instituciones y asimismo de particulares.- 
+                </p>
+                <p> </p>
+                <p>
+                    Este proyecto surge a raíz de una necesidad de los usuarios frente al constante incremento en los precios de los articulos de limpieza del mercado y a fin de brindar una alternativa económica y efectiva con productos de primera calidad y de elaboración propia. 
+                </p>
+                <p>
+                  La fabricación de nuestros productos se viene sosteniendo hace ya mas de 10 años con ventas en volúmenes adaptados a la necesidad de cada cliente.- 
+                </p>
+                <p>
+                  Nuestro objetivo es ofrecer al consumidor artículos de limpieza y desinfeccion, fabricados con materia prima de primera calidad a fin de elaborar un producto de excelencia sin perder de vista el cuidado del planeta. 
+                </p>
+                <p>
+                  Trabajamos constantemente para garantizar la relación precio producto, teniendo como objetivo primordial un cliente satisfecho.
+                </p>
+
+                <p>Atentamente,</p>
+                <br>
+                <p>
+                  <img src="{{config.sourcePath}}/brands/{{brand}}/images/logos/favicon.png" class="logoLetterFirma" />
+                  GeZa.
+                  
+                </p>
+
+            </div><!--/row-->
+          </div><!--/span-->
+
+          <!--/span-->
+        </div><!--/row-->
+        <div class="footer">
+          
+        </div>
+        <hr>
+
+        <footer>
+          <p>© GeZa 2019</p>
+        </footer>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="container">
+
+        <div class="row row-offcanvas row-offcanvas-right">
+
+          <div class="jumbotron">
+            <img src="{{config.sourcePath}}/brands/{{brand}}/images/logos/LOGO-MASTER-GEZA.png" class="imgLetter" />
+          </div>
+
+          <div class="col-3 col-md-3 sidebar-offcanvas" id="sidebar">
+            <div class="list-group list-group-leter">
+              <h1>CONTACTO</h1>
+              <div class="hrLetter"></div>
+
+              <ul>
+                  <li class="liLetter">www.geza.com.ar</li>
+                  <li class="liLetter"><a href="#formLetterAnchor" class="formLetterAnchor">(Completar arriba)</a></li>
+                  <li class="liLetter"><a href="#formLetterAnchor" class="formLetterAnchor">(Completar arriba)</a></li>
+                  <li class="liLetter"><a href="#formLetterAnchor" class="formLetterAnchor">(Completar arriba)</a></li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="col-9 col-md-9">
+            <div class="row">
+                <h1><a href="#formLetterAnchor" class="formLetterAnchor">(Completar arriba)</a></h1> 
+                <div class="hrLetterDos"></div>
+                <p class="titleLetter">
+                    Listado de precios y productos actualizados al {{vigencia}}
+                </h3>
+                <p> </p>
+                <p>
+                  <ul class="ul-products-Letter">
+                    {{#each products}}
+                      <li class="li-products-Letter"><p class="pFooter1">- {{this.description}}</p><p class="pFooter2">$ {{this.price}}</p></li>
+                    {{/each}}
+                  </ul>
+                </p>
+            </div><!--/row-->
+          </div><!--/span-->
+
+          <!--/span-->
+        </div><!--/row-->
+        <div class="footer">
+          
+        </div>
+        <hr>
+
+        <footer>
+          <p>© GeZa 2019</p>
+        </footer>
+
+      </div>
+
+    </form>
+    
+    {{> footer_admin}}
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#formLetterButton").click(function() {
+          var error = "";
+          if($("#customer").val()==""){
+            error += "\n- Debes ingresar el Nombre del cliente";
+          }
+          if($("#contacts1").is(':checked') == false && $("#contacts2").is(':checked') == false && $("#contacts3").is(':checked') == false){
+            error += "\n- Debes seleccionar al menos un telefono de contacto";
+          }
+
+          if(error != ""){
+            alert(error);
+          }else{
+            document.letterForm.submit();
+          }
+        });
+    });
+  </script>
+

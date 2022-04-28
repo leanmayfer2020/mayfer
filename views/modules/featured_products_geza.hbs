@@ -1,0 +1,61 @@
+<style type="text/css">
+	.product-list{
+		height: 290px;
+		max-height: 290px;
+    	max-width: 200px;
+	}
+	.item-slick2{
+		max-width: 220px;	
+	}
+	.title-product-list {
+	    min-height: 47px;
+	}
+	.block2-price{
+	    width: 220px;
+    	display: block;
+	}
+	.block2-txt{
+		height: 87px;
+	}
+	
+</style>
+<section class="newproduct bgwhite p-t-5 p-b-60">
+	<div class="container">
+		<div class="sec-title p-b-20 p-t-120">
+			<h3 class="m-text5 t-center">
+				Nuevos Productos
+			</h3>
+		</div>
+
+		<!-- Slide2 -->
+		<div class="wrap-slick2">
+			<div class="slick2 slick-track_geza">
+				{{#each products}}
+					<div class="item-slick2">
+						<!-- Block2 -->
+						<div class="block2 product-list">
+							<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+								<a href="{{../config.sitePath}}/producto/{{this.seo_link}}/{{this.salable_id}}" class="block2-name dis-block s-text3 p-b-5 title-product-list">
+									<img src="{{this.images.[0].url}}" alt="{{this.description}}" onerror="this.src='{{../config.sourcePath}}/brands/{{../brand}}/images/products/imagen_no_disponible.png'" data-url="{{this.main_image}}">
+								</a>
+							</div>
+
+							<div class="block2-txt p-t-10">
+								<a href="{{../config.sitePath}}/producto/{{this.seo_link}}/{{this.salable_id}}" class="block2-name dis-block s-text3 p-b-5 title-product-list">
+									{{this.description}}
+								</a>
+
+								<span class="block2-price m-text6 p-r-5">
+									<a href="{{../config.sitePath}}/producto/{{this.seo_link}}/{{this.salable_id}}" class="block2-name dis-block s-text3 p-b-5 title-product-list" style="font-weight: bold;font-size: 20px;">
+										${{formatPriceNumber this.web_price}}
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+
+	</div>
+</section>

@@ -1,0 +1,113 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">EDICION DE PRODUCTO</h3>
+		<form method="POST" id="productForm" name="productForm" enctype="multipart/form-data" action="{{config.adminPath}}/productos/editar">
+			<div class="row">
+				<div class="col-md-6">
+					<label class="labelAdminForm">Categoria</label>
+					<select class="form-control" id="category_id" name="category_id">
+						<option value="0">Seleccionar</option>
+						{{#each categories}}
+						<option value="{{this._id}}" {{#if_eq ../product.category_id this._id}} selected="selected" {{/if_eq}}>{{this.category}}</option>
+						{{/each}}
+					</select>
+					
+
+					<label class="labelAdminForm">Nombre</label>
+					<input type="text" class="form-control" id="description" name="description" placeholder="Nombre" value="{{product.description}}" />
+
+					<label class="labelAdminForm">Descripcion</label>
+					<input type="text" class="form-control" value="{{product.summary}}" id="summary" name="summary" placeholder="Descripcion" />
+
+					<label class="labelAdminForm">Modelo</label>
+					<input type="text" class="form-control" value="{{product.model}}" id="model" name="model" placeholder="Modelo" />
+
+					<label class="labelAdminForm">Codigo de Producto</label>
+					<input type="text" class="form-control" id="salable_id" name="salable_id" placeholder="Codigo de Producto" value="{{product.salable_id}}" readonly=readonly/>
+					<input type="hidden" class="form-control" id="_id" name="_id" value="{{product._id}}" />
+				</div>
+				<div class="col-md-6">
+					<label class="labelAdminForm">Medidas</label>
+					<input type="text" class="form-control" id="measures" name="measures" placeholder="30x30x30x500" value="{{product.measures}}" />
+
+					<input type="hidden" class="form-control" id="discount" name="discount" readonly="readonly" placeholder="Descuento" value="{{product.discount}}" />
+
+					<label class="labelAdminForm">Habilitado para la venta?</label>
+					<select class="form-control" id="enabled_for_sale" name="enabled_for_sale">
+						<option value="true">SI</option>
+						<option value="false">NO</option>
+					</select>
+
+					<label class="labelAdminForm">Precio Base</label>
+					<input type="text" class="form-control" id="price" name="price" value="{{product.price}}" placeholder="Precio Base" />
+
+					<label class="labelAdminForm">Precio WEB (+ {{config.mercadopago.percentage}}%)</label>
+					<input type="text" class="form-control" id="web_price" name="web_price" value="{{product.web_price}}" placeholder="Precio WEB" />
+
+					<label class="labelAdminForm">Marca</label>
+					<input type="text" class="form-control" value="{{product.brand}}" id="brand" name="brand" placeholder="Marca" value="{{product.brand}}" />
+
+					
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-6">
+						<label class="labelAdminForm">
+							<input type="checkbox" value="replace_confirmed" id="imagesHandler" name="imagesHandler" style="margin-left: 10px; margin-right: 10px;">
+                        				Desea reemplazar las imágenes? 
+                    				</label>
+        				</div>
+        				<div class="col-md-6">
+                    				<label class="labelAdminForm">
+                        				(Marque la casilla si desea borrar las imagenes actuales del producto)
+						</label>
+				        </div>
+					<div class="col-md-6">
+						<label class="labelAdminForm">
+							Imagenes (Tamaño 500px x 500px)
+						</label>
+					</div>
+
+					<div class="col-md-6">
+						<label class="labelAdminForm">Imagen 1</label>
+						{{#if product.images.[0].url}}
+							<img src="{{product.images.[0].url}}" width="50" height="50" />
+						{{/if}}
+						<input type="file" placeholder="Ingrese url de imagen" value="{{product.images.0.url}}" name="attachment1" id="attachment1" class="form-control labelAdminForm">
+						
+						<input type="hidden" value="{{product.images.0.url}}" name="attachment1_old" id="attachment1_old">
+					</div>
+					
+					<div class="col-md-6">
+						<label class="labelAdminForm">Imagen 2</label>
+						{{#if product.images.[1].url}}
+						<img src="{{product.images.[1].url}}" width="50" height="50" />
+						{{/if}}
+						<input type="file" placeholder="Ingrese url de imagen" value="{{product.images.1.url}}" name="attachment2" id="attachment2" class="form-control labelAdminForm">
+						
+						<input type="hidden" value="{{product.images.1.url}}" name="attachment2_old" id="attachment2_old">
+						
+					</div>
+					<div class="col-md-6">
+						<label class="labelAdminForm">Imagen 3</label>
+						{{#if product.images.[2].url}}
+						<img src="{{product.images.[2].url}}" width="50" height="50" />
+						{{/if}}
+						<input type="file" placeholder="Ingrese url de imagen" value="{{product.images.2.url}}" name="attachment3" id="attachment3" class="form-control labelAdminForm">
+						
+						<input type="hidden" value="{{product.images.2.url}}" name="attachment3_old" id="attachment3_old">
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 table" style="padding:0px;">
+				<input type="submit" value="Guardar" class="btn btn-success" style="width: 100%;" />
+			</div>
+
+		</form>	
+	</div>
+</section>
+
+{{> footer_admin}}

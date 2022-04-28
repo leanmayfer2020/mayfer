@@ -1,0 +1,35 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">MENSAJES</h3>
+			<div class="row table" style="max-width: 100% !important;">
+				{{#each messages}}
+					<div class="col-md-12 line-table">
+						<div class="col-md-4 div_column-auto">
+							<div class="block2-txt p-t-20"><b>Nombre:</b> {{this.full_name}}</div>
+						</div>
+
+						<div class="col-md-4 div_column-auto">
+							<div class="block2-txt p-t-20"><b>Telefono:</b> {{this.phone}}</div>
+						</div>
+
+						<div class="col-md-4 div_column-auto">
+							<div class="block2-txt p-t-20"><b>Email:</b> {{this.email}}</div>
+						</div>
+					</div>
+
+					<div class="col-md-12 line-table">
+						<div class="col-md-12 div_column-auto">
+							<div class="block2-txt p-t-20"><b>Mensaje:</b> {{this.message}}</div>
+						</div>
+					</div>
+
+					<div class="col-md-12" style="background-color: black;height: 5px;"></div>
+
+				{{/each}}
+			</div>
+	</div>
+</section>
+
+{{> footer_admin}}

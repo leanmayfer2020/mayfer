@@ -1,0 +1,19 @@
+<h4 class="m-text14 p-b-7">
+	Categorías:
+</h4>
+
+<ul class="p-b-54">
+	{{#each categories}}
+		<li class="p-t-4">
+			<a href="{{config.sitePath}}/productos/{{this.category_seo}}/{{this._id}}" class="s-text13">
+				{{this.category}} <span class="productCounterByCategory">({{this.quantity}})</span>
+			</a>
+		</li>
+	{{/each}}
+	<li class="p-t-4">
+		<a href="{{config.sitePath}}/productos" class="s-text13 active1">
+			Ver todos los productos
+		</a>
+	</li>
+</ul>
+

@@ -1,0 +1,36 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">NUEVO BANNER</h3>
+		<form method="POST" id="bannerForm" name="bannerForm" action="{{config.adminPath}}/banners/nuevo">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<label class="labelAdminForm">Imagenes (Tamaño 1920px x 570px)</label>
+					<a href="https://www.directupload.net/" class="realLink" target="_blank">Cargar Imagenes aquí</a>
+					
+					<input type="text" class="form-control" id="banner" name="banner" placeholder="Link Banner" />
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<label class="labelAdminForm">Imagenes (Tamaño 375px x 370px)</label>
+					<a href="https://www.directupload.net/" class="realLink" target="_blank">Cargar Imagenes aquí</a>
+					
+					<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Link Banner Mobile" />
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+
+			<div class="col-md-12 table" style="padding:0px;">
+				<input type="submit" value="Guardar" class="btn btn-success" style="width: 100%;" />
+			</div>
+		</form>	
+	</div>
+</section>
+
+{{> footer_admin}}

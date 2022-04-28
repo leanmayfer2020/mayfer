@@ -1,0 +1,11 @@
+{{#each data}}
+
+  <div class="col-md-4 card-mp">
+    <a href="" data-toggle="modal" data-leyend="{{this.issuer.name}} - {{#if_eq this.recommended_message null}}{{#each this.payment_methods}}{{this.name}}{{/each}} {{else}}{{this.recommended_message}}{{/if_eq}}" data-target="#exampleModalWindow" data-id="{{this.id}}" class="exampleModal">
+      <div class="img-container">
+        <img src="{{this.picture}}" width="100" alt="" title="" onerror="this.src='{{../no_img}}'">
+      </div>
+    </a>
+  </div>
+  
+{{/each}}

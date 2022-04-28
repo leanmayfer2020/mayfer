@@ -1,0 +1,40 @@
+{{#if location}}
+	{{#if_eq location "carrito"}}
+		<title>Carrito | {{config.metas.title}}</title>
+	{{/if_eq}}
+
+
+	{{#if_eq location "listado"}}
+		<title>{{category_name}} | {{config.metas.title}}</title>
+	{{/if_eq}}	
+
+	{{#if_eq location "ficha"}}
+		<title>Comprar {{product.description}} | {{config.metas.title}}</title>
+	{{/if_eq}}	
+
+	{{#if_eq location "billing"}}
+		<title>Datos de tu compra | {{config.metas.title}}</title>
+	{{/if_eq}}	
+
+	{{#if_eq location "pago"}}
+		<title>Abona tu compra | {{config.metas.title}}</title>
+	{{/if_eq}}	
+
+{{else}}
+	<title>{{config.metas.title}}</title>
+{{/if}}
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="{{config.metas.color}}">
+<meta name="description" content="{{config.metas.title}}">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="msapplication-navbutton-color" content="{{config.metas.color}}">
+<meta name="theme-color" content="{{config.metas.color}}">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+<meta property="og:description" content="{{config.metas.title}}">
+<meta property="og:image" content="{{config.metas.og_image}}">
+<meta property="og:site_name" content="{{config.metas.title}}">
+<meta property="og:title" content="{{config.metas.title}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{config.metas.url_site}}">

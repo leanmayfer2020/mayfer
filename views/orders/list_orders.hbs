@@ -1,0 +1,79 @@
+<html>
+	<head>
+		{{> header_resources}}
+	</head>
+	<body class="">
+	<!-- <body class="animsition"> -->
+
+	<style type="text/css">
+		label{
+			font-size: 18px;
+    		font-weight: bold;
+    		cursor:pointer;
+		}
+		span{
+			font-size: 12px;
+		}
+		.collapse{
+			margin-left: 50px;
+		}
+		.labelTotalOrder{
+			display: block;
+			margin-left: 27px
+		}
+		.pDateOrder{
+			margin-left: 27px;
+			cursor:pointer;
+		}
+		.detailOrder{
+			cursor:pointer;	
+		}
+	</style>
+
+	<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+				<div class="row">	
+					<div class="col-md-6">
+						<h4 class="m-text26 p-b-36 p-t-15">Pedidos => ${{total}} <br>Revenue => ${{revenue}}</h4>
+						{{#each orders}}
+							<div class="form-group detailOrder" data-id="{{this._id}}">
+								<label data-id="{{this._id}}" class="">
+									{{this.order_number}} - Cliente {{this.customer}}
+								</label>
+								<label data-id="{{this._id}}" class="labelTotalOrder">
+									Total ${{this.total}}
+								</label>
+								<p data-id="{{this._id}}" class="pDateOrder">{{this.order_data}}</p>
+
+								<div id="{{this._id}}" class="collapse">
+									{{#each this.products}}
+										<div class="form-group">
+											<span>• {{this.product_name}}</span>
+											<span>{{this.quantity}}</span>
+										</div>
+									{{/each}}
+								</div>
+
+							</div>
+							<hr>
+						{{/each}}
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	</body>
+	{{> footer_resources}}	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $(".detailOrder").click(function() {
+		    	var element = "#" + $(this).data("id");
+		    	if($(element).css("display")=="block"){
+		    		$(element).css("display", "none");
+		    	}else{
+		    		$(element).css("display", "block");
+		    	}
+			});
+		});
+	</script>
+</html>

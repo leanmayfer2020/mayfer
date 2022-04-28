@@ -1,0 +1,144 @@
+<html>
+	<head>
+		{{> header_resources}}
+	</head>
+	<body class="">
+	<!-- <body class="animsition"> -->
+
+	<style type="text/css">
+		span.products{
+			float: left;
+		    width: 500px;
+		    height: 60px;
+		    padding-top:15px;
+		}
+		.inputProducts {
+		    width: 50px;
+		    float: left;
+		}
+		label{
+			font-size: 18px;
+    		font-weight: bold;
+		}
+		fieldset{
+			margin-left: 10px;
+		}
+		.btn-primary{
+			width: 100%;
+		}
+
+		@media (max-width: 700px) {
+			span.products{
+				width: 280px;
+			    margin-bottom: 50px;
+	    		padding: 10px;
+	    	}
+	    	fieldset{
+				margin-left: 0px;
+			}
+	    }
+	</style>
+	<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+			<form class="leave-comment" method="POST" id="orderForm" name="orderForm">
+				<div class="row">	
+					<div class="col-md-6">
+						<h4 class="m-text26 p-b-36 p-t-15">Nuevo Pedido</h4>
+						
+						<div class="form-group">
+							<label>Cliente</label>
+							<input type="text" name="customer" id="customer" placeholder="Cliente" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label>Dirección</label>
+							<input type="text" name="address" id="address" placeholder="Direccion" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" name="email" id="email" placeholder="Email" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label>Celular</label>
+							<input type="text" name="cellphone" id="cellphone" placeholder="Celular" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label>Observaciones</label>
+							<input type="text" name="comments" id="comments" placeholder="Observaciones" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label>Productos</label>
+						</div>
+						<div class="form-group">
+							<fieldset>
+								{{#each products}}
+				                    <span class="products">- {{this.description}} $ {{this.price}}</span>
+									<input type="text" name="{{this.salable_counter}}" id="{{this.salable_counter}}" class="form-control inputProducts" data-cost="{{this.price}}" value="0" data-revenue="{{this.revenue}}"/>
+				                {{/each}}
+							</fieldset>
+							<input type="hidden" name="quantity" id="quantity" value="{{quantity}}" />
+						</div>
+						<div class="form-group">
+							<label>Total</label>
+							<input type="hidden" name="order_total" id="order_total" class="" value="0" />
+							<div id="total">$0</div>
+						</div>
+						<div class="form-group">
+							<label>Revenue</label>
+							<div id="total_revenue">$0</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	</body>
+	{{> footer_resources}}
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $(".inputProducts").change(function() {
+		    	let total = 0;
+		    	let total_revenue = 0;
+			  	$(".inputProducts").each(function(){
+	        	    let quantity = $(this).val();
+	        	    if(quantity>0){
+		        	    let cost = $(this).data("cost");
+		        	    let revenue = $(this).data("revenue");
+		        	    total += quantity * cost;
+		        	    total_revenue += quantity * revenue;
+		        	    console.log("q", $(this).val());
+		        	    console.log("cost",$(this).data("cost"));
+		        	    console.log("total", total);
+		        	    $("#total").html("$"+total);
+		        	    $("#total_revenue").html("$"+total_revenue);
+		        	    $("#order_total").val(total);
+		        	}
+	        	});
+			});
+		});
+	</script>
+	
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

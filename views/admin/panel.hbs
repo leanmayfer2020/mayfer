@@ -1,0 +1,63 @@
+{{> header_admin}}
+
+<style type="text/css">
+	.buttonsAdminPanel{
+		width: 300px;
+	    height: 50px;
+	    text-align: center;
+	    line-height: 40px;
+	    margin-top: 10px;
+	}	
+	.center{
+		text-align: center;
+	}
+</style>
+
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/productos" class="btn btn-primary buttonsAdminPanel">PRODUCTOS</a>
+        </div>
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/categorias" class="btn btn-primary buttonsAdminPanel">CATEGORIAS</a>
+        </div>
+        {{#if_eq brand "mayfer"}}
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/banners" class="btn btn-primary buttonsAdminPanel">BANNERS</a>
+        </div>
+        {{/if_eq}}
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/envios" class="btn btn-primary buttonsAdminPanel">ENVIOS</a>
+        </div>
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/pedidos" class="btn btn-primary buttonsAdminPanel">PEDIDOS WEB</a>
+        </div>
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/mensajes" class="btn btn-primary buttonsAdminPanel">MENSAJES</a>
+        </div>
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/documentacion" class="btn btn-primary buttonsAdminPanel">DOCUMENTACION</a>
+        </div>
+
+        {{#if_eq brand "geza"}}
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/carta" class="btn btn-primary buttonsAdminPanel">CARTA</a>
+        </div>
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/carta-email" class="btn btn-primary buttonsAdminPanel">EMAIL</a>
+        </div>
+        <div class="col-md-12 center">
+            <a href="{{config.adminPath}}/precios" class="btn btn-primary buttonsAdminPanel">PRECIOS</a>
+        </div>
+        {{/if_eq}}
+        <div class="col-md-12 center">
+            <a href="{{config.sitePath}}/" target="_blank" class="btn btn-primary buttonsAdminPanel">VER SITIO</a>
+        </div>
+        <div class="col-md-12 center">
+        	<a href="logout" class="btn btn-danger buttonsAdminPanel">SALIR</a>
+        </div>
+    </div>
+</div>
+
+{{> footer_admin}}

@@ -1,0 +1,30 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">LISTADO DE BANNERS</h3>
+			<div class="col-md-12 table" style="padding:0px;">
+				<a href="{{config.adminPath}}/banners/nuevo" value="toggle" class="btn btn-success" style="width: 100%;">AGREGAR NUEVO BANNER</a>
+			</div>
+			<div class="row table">
+				{{#each banners}}
+					<div class="col-md-12 line-table">
+						<div class="col-md-8 div_column-2">
+							<div class="block2-txt p-t-20">
+								<img src="{{this.banner}}" width="200" />
+							</div>
+						</div>
+						<div class="col-md-2 div_column-4 buttonEdition">
+                            <!-- <a href="{{../config.adminPath}}/banners/editar/{{this._id}}" value="toggle" class="btn btn-info">Editar</a> -->
+                        </div>
+
+                        <div class="col-md-2 div_column-5 buttonEdition">
+                            <a href="{{../config.adminPath}}/banners/eliminar/{{this._id}}" value="toggle" class="btn btn-danger">Eliminar</a>
+                        </div>
+					</div>
+				{{/each}}
+			</div>
+	</div>
+</section>
+
+{{> footer_admin}}

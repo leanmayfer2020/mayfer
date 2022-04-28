@@ -1,0 +1,26 @@
+{{> header}}
+<div id="cart" data-cartid="{{cart._id}}" class="displaynone"></div>
+	
+	{{#if_eq productsLength 0}}
+		<section class="cart bgwhite p-t-70 p-b-100">
+			<div class="container">
+				<div class="container-table-cart pos-relative">
+					<div class="wrap-table-shopping-cart bgwhite">
+						<div class="col-md-12" style="text-align:center;min-height: 400px;">
+							<p>Tu carrito no posee productos</p>
+							<p><a href="{{config.links.products}}" class="realLink">Ver listado de productos</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{{else}}
+		{{#if_eq device "mobile"}}
+			{{> cart_box_mobile}}
+		{{else}}
+			{{> cart_box}}
+		{{/if_eq}}
+	{{/if_eq}}
+	
+
+{{> footer}}

@@ -1,0 +1,87 @@
+{{> header}}
+
+	{{#if_eq result 'ok'}}
+        <div class="alert alert-success" style="width: 70%;margin: 0 auto; margin-top: 50px;">
+		    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+		    <strong>Perfecto!</strong> Tu mensaje se envió correctamente, en breve nos estaremos poniendo en contacto.
+		</div>
+    {{/if_eq}}
+
+    {{#if_eq result 'error'}}
+        <div class="alert alert-danger" style="width: 70%;margin: 0 auto; margin-top: 50px;">
+		    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+		    <strong>Error!</strong> Tu mensaje no pudo ser enviado, por favor intentelo nuevamente.
+		</div>
+    {{/if_eq}}
+
+
+	<section class="bgwhite p-t-20 p-b-60">
+		<div class="container">
+			<div class="row">
+				
+				<div class="table globoContactoContent" style="margin-bottom:50px;">
+					<form class="leave-comment" method="POST" id="messageForm">
+						<h4 class="m-text26 p-b-36 p-t-15">
+							Dejanos tu mensaje!
+						</h4>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="full_name" id="full_name" placeholder="Nombre completo">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone" id="phone" placeholder="Teléfono o Celular">
+							<input type="hidden" value="{{productContact}}" name="productContact" id="productContact" />
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" id="email" placeholder="Email">
+						</div>
+
+						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" id="message" placeholder="Mensaje"></textarea>
+
+						<div class="w-size25">
+							<!-- Button -->
+							<button type="button" id="sendNewMessage" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+								Enviar
+							</button>
+						</div>
+
+						<input name="recaptcha_validate_owner" type="hidden" id="recaptcha_validate_owner" />
+                        <span class="effect1-line"></span>
+
+                        <script src="https://www.google.com/recaptcha/api.js?render={{config.recaptcha.public}}"></script>
+
+                        <script>
+                            grecaptcha.ready(function() {
+                                grecaptcha.execute("{{config.recaptcha.public}}", {action: 'homepage'}).then(function(token) {
+                                    $("#recaptcha_validate_owner").val(token);
+                                });
+                            });
+                        </script>
+
+						<div class="alert alert-danger m-t-20" style="display: none;" id="message-errorformat" role="alert">Ups! Debes ingresar un email válido.</div>
+						<div class="alert alert-danger m-t-20" style="display: none;" id="message-error" role="alert">Ups! Debes completar todos los campos.</div>
+					</form>
+				</div>
+
+				{{> stores }}
+				
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+
+
+{{> footer}}

@@ -1,0 +1,70 @@
+{{> header_admin}}
+<link rel="stylesheet" type="text/css" href="{{config.sourcePath}}/brands/{{brand}}/css/letter.css">
+    <div class="container">
+    <form action="" method="post" name="letterForm" id="letterForm" >
+        <div class="container" id="formLetterAnchor">
+            <div class="row row-offcanvas row-offcanvas-right">  
+                <div class="col-12 col-md-12" style="margin-left: -15px;">
+                  {{#if_eq msj "success"}}
+                    <div class="alert alert-success" style="margin-top:18px;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        <strong>Excelente!</strong> Se ha enviado el mail a {{customer}}
+                    </div>
+                  {{/if_eq}}
+                </div>
+                <div class="col-12 col-md-12">
+                    <div class="row">
+                        <input type="text" name="customer" id="customer" placeholder="A quien corresponda" class="form-control form-controlInput" />
+                    </div>
+                    <div class="row">
+                        <input type="text" name="customer_email" id="customer_email" placeholder="email@gmail.com" class="form-control form-controlInput" style="margin-top: 10px;" />
+                    </div>
+                    <div class="row">
+                        <ul>
+                            <li>www.geza.com.ar</li>
+                            <li><input type="checkbox" id="contacts1" name="contacts" value="156-456-3879" />156-456-3879</li>
+                            <li><input type="checkbox" id="contacts2" name="contacts" value="155-750-2312" />155-750-2312</li>
+                            <li><input type="checkbox" id="contacts3" name="contacts" value="155-888-8423" />155-888-8423</li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="formLetterButton" class="btn btn-primary form-controlButton">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div class="footer">
+    <hr>
+    <footer>
+    <p>© GeZa 2019</p>
+    </footer>
+
+{{> footer_admin}}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#formLetterButton").click(function() {
+          var error = "";
+          if($("#customer").val()==""){
+            error += "\n- Debes ingresar el Nombre del cliente";
+          }
+          if($("#contacts1").is(':checked') == false && $("#contacts2").is(':checked') == false && $("#contacts3").is(':checked') == false){
+            error += "\n- Debes seleccionar al menos un telefono de contacto";
+          }
+          
+          if($("#customer_email").val()==""){
+            error += "\n- Debes ingresar el Email del cliente";
+          }
+        
+          if(error != ""){
+            alert(error);
+          }else{
+            document.letterForm.submit();
+          }
+        });
+      });
+  </script>
+  

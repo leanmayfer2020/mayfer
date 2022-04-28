@@ -1,0 +1,78 @@
+{{> header_admin}}
+
+<section class="bgwhite p-b-60">
+	<div class="container">
+		<h3 class="titleAdmin">NUEVO PRODUCTO</h3>
+		<form method="POST" id="productForm" name="productForm" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-md-6">
+					<label class="labelAdminForm">Categoria</label>
+					<select class="form-control" id="category_id" name="category_id">
+						<option value="0">Seleccionar</option>
+						{{#each categories}}
+						<option value="{{this._id}}">{{this.category}}</option>
+						{{/each}}
+					</select>
+					
+
+					<label class="labelAdminForm">Nombre</label>
+					<input type="text" class="form-control" id="description" name="description" placeholder="Nombre" />
+
+					<label class="labelAdminForm">Descripcion</label>
+					<input type="text" class="form-control" id="summary" name="summary" placeholder="Descripcion" />
+
+					<label class="labelAdminForm">Modelo</label>
+					<input type="text" class="form-control" id="model" name="model" placeholder="Modelo" />
+
+					<label class="labelAdminForm">Codigo de Producto</label>
+					<input type="text" class="form-control" id="salable_id" name="salable_id" placeholder="Codigo de Producto" readonly=readonly value="{{salableMagic}}"/>
+				</div>
+				<div class="col-md-6">
+					<label class="labelAdminForm">Medidas</label>
+					<input type="text" class="form-control" id="measures" value="" name="measures" placeholder="30x30x30x500" />
+
+					<input type="hidden" class="form-control" id="discount" value="0" readonly="readonly" name="discount" placeholder="Descuento" />
+
+					<label class="labelAdminForm">Habilitado para la venta?</label>
+					<select class="form-control" id="enabled_for_sale" name="enabled_for_sale">
+						<option value="true">SI</option>
+						<option value="false">NO</option>
+					</select>
+
+					<label class="labelAdminForm">Precio Base</label>
+					<input type="text" class="form-control" id="price" name="price" placeholder="Precio Base" />
+
+					<label class="labelAdminForm">Precio WEB (+ {{config.mercadopago.percentage}}%)</label>
+					<input type="text" class="form-control" id="web_price" name="web_price" placeholder="Precio WEB" />
+
+					<label class="labelAdminForm">Marca</label>
+					<input type="text" class="form-control" value="{{brandCapitalize brand}}" id="brand" name="brand" placeholder="Marca" />
+
+					
+				</div>
+				<div class="col-md-12">
+					<label class="labelAdminForm">Imagenes (Tamaño 500px x 500px)</label>
+
+					<br>
+					<a href="https://www.directupload.net/" class="realLink" target="_blank">Cargar Imagenes aquí</a>
+					<br>
+					<label class="labelAdminForm">Imagen 1</label>
+					<input type="file" name="attachment1" placeholder="Ingrese url de imagen" id="attachment1" class="form-control labelAdminForm">
+
+					<label class="labelAdminForm">Imagen 2</label>
+					<input type="file" name="attachment2" placeholder="Ingrese url de imagen" id="attachment2" class="form-control labelAdminForm">
+
+					<label class="labelAdminForm">Imagen 3</label>
+					<input type="file" name="attachment3" placeholder="Ingrese url de imagen" id="attachment3" class="form-control labelAdminForm">
+				</div>
+			</div>
+
+			<div class="col-md-12 table" style="padding:0px;">
+				<input type="submit" value="Guardar" class="btn btn-success" style="width: 100%;" />
+			</div>
+
+		</form>	
+	</div>
+</section>
+
+{{> footer_admin}}

@@ -1,0 +1,21 @@
+	<!-- Cart -->
+	<section class="cart bgwhite p-t-30 p-b-100">
+		<div class="container">
+			<!-- Cart item -->
+			
+				{{> article_mobile}}
+			
+
+				<div class="size10 trans-0-4 m-t-10 m-b-10 total-cart" style="width:100%;padding-right: 15px;">
+					<span class="">TOTAL $<div id="total_cart" style="display: inline-block;">{{cart.total_price}}</div></span>
+				</div>
+			</div>
+
+			<div class="size10 trans-0-4 m-t-10 m-b-10 text-right" style="display: block;width: 100%;text-align: center !important;padding: 10px;height: 70px;">
+					<!-- Button -->
+					<a href="{{config.billingPath}}" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" style="display: inline-block;width: 100%;padding: 10px;text-align: center;">
+						Continuar
+					</a>
+				</div>
+		</div>
+	</section>

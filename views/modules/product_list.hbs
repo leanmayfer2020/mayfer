@@ -1,0 +1,29 @@
+{{#if products}}
+	{{#each products}}
+
+		<div class="col-sm-12 col-md-6 col-lg-3 p-b-30 productBoxListing">
+			<a href="{{../config.sitePath}}/producto/{{this.seo_link}}/{{this.salable_id}}" class="">
+				<div class="block2 product-list">
+					<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew boxProductImage">
+						<img src="{{this.images.0.url}}" alt="{{this.description}}" onerror="this.src='{{../config.sourcePath}}/brands/{{../brand}}/images/products/imagen_no_disponible.png'" data-url="{{this.images.o.url}}">
+					</div>
+
+					<div class="block2-txt p-t-20 block2-name dis-block s-text3 p-b-5 title-product-list">
+						{{this.description}}
+					</div>
+					{{#if this.web_price}}
+					<div class="block2-price m-text6 p-r-5" style="font-size: 22px;font-weight: bold;">
+						${{formatPriceNumber this.web_price}}
+					</div>
+					{{/if}}
+				</div>
+			</a>
+		</div>
+
+	{{/each}}
+{{else}}
+	<div class="col-md-12">
+		<p>Ups! No disponemos de productos en esta categoría.</p>
+		<p>Conocé todos nuestros productos haciendo <a href="{{config.sitePath}}/productos" class="realLink">Click Aquí</a></p>
+	</div>
+{{/if}}

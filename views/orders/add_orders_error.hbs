@@ -1,0 +1,35 @@
+<html>
+	<head>
+		{{> header_resources}}
+	</head>
+	<body class="" style="background-color: #A01B1D">
+	<!-- <body class="animsition" style="background-color: #A01B1D"> -->
+	<style type="text/css">
+		.link{
+		    color: white;
+		    font-size: 18px;
+		    border: 1px solid white;
+		    border-radius: 5px;
+		    padding: 10px;
+		}
+		.link:hover{
+		    color: white;
+		}
+	</style>
+	<section class="bgwhite p-t-66 p-b-60" style="background-color: #A01B1D">
+		<div class="container">
+			<form class="leave-comment" method="POST" id="orderForm" name="orderForm">
+				<div class="row">	
+					<div class="col-md-12" style="text-align:center;">
+						<img src="{{config.sourcePath}}/brands/{{brand}}/images/tilde_error.png" width="200" />
+						<h4 class="m-text26 p-t-15" style="color: #fff;">Ups!</h4>
+						<p class="m-text26 p-b-36 p-t-15" style="color: #fff;">El Pedido no se pudo guardar!</p>
+						<a href="./pedidos" class="link">Click Aquí para intentarlo de nuevo</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	</body>
+	{{> footer_resources}}
+</html>

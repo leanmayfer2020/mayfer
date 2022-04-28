@@ -1,0 +1,120 @@
+
+  p{
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .pFooter1{
+   margin-bottom: 5px; 
+   float: left;
+   width: 80%;
+  }
+  .pFooter2{
+   margin-bottom: 5px; 
+   float: right;
+   width: 20%;
+  }
+  .jumbotron{
+    background-color: white;
+    width: 100%;
+  }
+  .container{
+    color: #888888;
+    max-width: 880px;
+    max-height: 880px;
+  }
+  h1{
+    font-size:20px;
+    width: 100%;
+  }
+  .footer{
+    width: 100%;
+    height: 1px;
+    margin-top: 100px;
+  }
+  footer{
+    float: right;
+  }
+  h3{
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+  .liLetter{
+    width: 150px;
+  }
+  .li-products-Letter{
+    width: 500px;
+  }
+  .ul-products-Letter{
+    width: 100%;  
+  }
+  .imgLetter{
+    max-width: 300px;float: right;margin-bottom: -20px;
+  }
+  .imgLetterMail{
+    max-width: 300px;float: left;margin-bottom: 0px;
+  }
+  .list-group-leter{
+    height: 500px;
+  }
+  .hrLetter{
+    border-top: 1px solid #A01B1D;width: 170px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .hrLetterDos{
+    border-top: 1px solid #A01B1D;width: 620px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .titleLetter{
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+  .titleLetterMail{
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .logoLetterFirma{
+    width: 20px;
+    margin-top: -8px;
+    margin-right: -3px;
+  }
+  #contacts{
+    margin-right: 5px; 
+  }
+  .form-controlInput{
+    width: 80%;
+    float: left;
+  }
+  .form-controlButton{
+    float: right;
+    margin-top: 10px;
+  }
+  .formLetterAnchor{
+    color:#0056b3;
+    line-height:1.5;
+  }
+  #contacts1, #contacts2, #contacts3{
+    margin-right: 10px;
+  }
+  .customerEmail{
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+  .ulEmail{
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  .pFooterEmail1{
+   margin-bottom: 5px; 
+   display: inline-table;
+   width: 350px;
+  }
+  .pFooterEmail2{
+   margin-bottom: 5px; 
+   display: inline-table;
+   width: 80px;
+  }

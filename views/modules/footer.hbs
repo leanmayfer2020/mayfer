@@ -1,0 +1,192 @@
+    <!-- Shipping -->
+    <!--{{> pre_footer}}-->
+
+
+    <!-- Footer -->
+    <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <div class="flex-w p-b-90">
+            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+                <h4 class="s-text12 p-b-30">
+                    REDES SOCIALES
+                </h4>
+
+                <div>
+                    <p class="s-text7 w-size27">
+                        Enterate de nuevos productos y promociones en las redes sociales!
+                    </p>
+
+                    <div class="flex-m p-t-30">
+                        <a href="{{config.social.facebook}}" target="_blank" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="{{config.social.instagram}}" target="_blank" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+                        <a href="{{config.social.pinterest}}" target="_blank" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    CATEGORIAS
+                </h4>
+
+                <ul>
+                    {{#each categories}}
+                        <li class="p-b-9">
+                            <a href="{{config.sitePath}}/productos/{{this.category_seo}}/{{this._id}}" class="s-text7">
+                                {{this.category}}
+                            </a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    LINKS
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="{{config.links.home}}?ref=footer" class="s-text7">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="{{config.links.products}}" class="s-text7">
+                            Productos
+                        </a>
+                    </li>
+
+                    {{#if_eq brand "mayfer"}}
+                        <li class="p-b-9">
+                            <a href="{{config.links.description_brand}}" class="s-text7">
+                                Nosotros
+                            </a>
+                        </li>
+                    {{/if_eq}}
+
+                    <li class="p-b-9">
+                        <a href="{{config.links.contact}}" class="s-text7">
+                            Contacto
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    AYUDA
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="{{config.links.payments}}" class="s-text7">
+                            Medios de Pago
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="{{config.links.shipping}}" class="s-text7">
+                            Envíos
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="{{config.links.customers}}" class="s-text7">
+                            Atención al cliente
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+                <h4 class="s-text12 p-b-30">
+                    Newsletter
+                </h4>
+
+                
+                    <div class="effect1 w-size9">
+                        <input class="s-text7 bg6 w-full p-b-5" type="text" name="email-subscription" placeholder="email@example.com" id="email-subscription">
+                        <input name="recaptcha_validate_owner" type="hidden" id="recaptcha_validate_owner" />
+                        <span class="effect1-line"></span>
+
+                        <script src="https://www.google.com/recaptcha/api.js?render={{config.recaptcha.public}}"></script>
+
+                        <script>
+                            grecaptcha.ready(function() {
+                                grecaptcha.execute("{{config.recaptcha.public}}", {action: 'homepage'}).then(function(token) {
+                                    $("#recaptcha_validate_owner").val(token);
+                                });
+                            });
+                        </script>
+
+
+                    </div>
+
+                    <div class="w-size2 p-t-20">
+                        <!-- Button -->
+                        <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4" id="sendEmail">
+                            Subscribirse
+                        </button>
+                    </div>
+
+                    <div class="alert alert-success m-t-20" style="display: none;" id="email-success" role="alert">Gracias! Ya te suscribiste a nuestras ofertas.</div>
+
+                    <div class="alert alert-danger m-t-20" style="display: none;" id="email-error" role="alert">Ups! No pudimos guardar tu email, intentalo nuevamente.</div>
+
+                    <div class="alert alert-danger m-t-20" style="display: none;" id="email-errorformat" role="alert">Ups! Debes ingresar un email válido.</div>
+
+            </div>
+        </div>
+
+        <div class="t-center p-l-15 p-r-15">
+            <div class="t-center s-text8 p-b-20">
+                <a href="{{config.links.payments}}">
+                <img class="h-size2" src="{{config.sourcePath}}/brands/{{brand}}/images/icons/mercadopago.png" alt="mercadopago" style="height: 40px;">
+            </a>
+            </div>
+
+            <a href="{{config.links.payments}}">
+                <img class="h-size2" src="{{config.sourcePath}}/brands/{{brand}}/images/icons/visa.png" alt="IMG-VISA">
+            </a>
+
+            <a href="{{config.links.payments}}">
+                <img class="h-size2" src="{{config.sourcePath}}/brands/{{brand}}/images/cardMP-icon.svg" alt="master-mercadopago" style="border: 1px solid #999;">
+            </a>
+            
+            <a href="{{config.links.payments}}">
+                <img class="h-size2" src="{{config.sourcePath}}/brands/{{brand}}/images/icons/mastercard.png" alt="IMG-MASTERCARD">
+            </a>
+
+            <a href="{{config.links.payments}}">
+                <img class="h-size2" src="{{config.sourcePath}}/brands/{{brand}}/images/icons/express.png" alt="IMG-EXPRESS">
+            </a>
+
+            <div class="t-center s-text8 p-t-20">
+                Copyright © 2019 Todos los derechos reservados.
+            </div>
+
+            <div class="t-center s-text8 p-t-20">
+                <a href="{{config.qr_afip.link}}" target="{{config.qr_afip.target}}"><img src="{{config.qr_afip.image}}" width="40" border="0"></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <!-- Container Selection1 -->
+    <div id="dropDownSelect1"></div>
+
+
+{{> footer_resources}}
+
+</body>
+</html>

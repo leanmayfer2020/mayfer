@@ -1,0 +1,84 @@
+{{> header}}
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700" rel="stylesheet">
+<link rel="stylesheet" href="{{config.sourcePath}}/brands/{{brand}}/css/mercadopago.css" type="text/css">
+
+<section class="bgwhite p-t-66 p-b-60" style="min-height:500px;">
+  <div class="container">
+    <h3>Medios de Pago</h3>
+
+    {{#if_eq brand "mayfer"}}
+      <div class="row">
+        <h5 class="subtitle">En nuestra sucursal:</h3>
+        <p class="boxLandings minMil">
+          Acercate a nuestra sucursal y abona tus compras con las siguientes promociones:
+        </p>
+        <p class="boxLandings minMil">
+          <div class="boxLandings" style="margin-top: 0px;">
+            <div style="float: left;"><img src="{{config.sourcePath}}/brands/{{brand}}/images/ahora36.jpg" /></div>
+            <div style="float: left;"><img src="{{config.sourcePath}}/brands/{{brand}}/images/ahora12.jpg" /></div>
+          </div>
+        </p>
+      </div>
+    {{/if_eq}}
+
+
+    <div class="row">
+      {{#if_eq brand "mayfer"}}
+        <h5 class="subtitle">En nuestra web:</h3>
+      {{/if_eq}}
+      <p class="boxLandings">
+        Para que puedas abonar tus compras, tenemos para ofrecerte MercadoPago. Una herramienta en la que podrás acceder a promos bancarias y si tenes una cuenta con ellos, vas a poder abonar con la opción "Dinero en Cuenta". Accedé a más información haciendo <a href="https://www.mercadopago.com.ar/ayuda/medios-de-pago-cuotas-promociones_264" class="realLink" target="_blank">click aquí</a>
+      </p>
+    </div>
+
+
+  </div>
+
+     <main class="main-mp">
+    
+     <div class="container-fluid">
+       <div class="row justify-content-center box-general-view-mp">
+       
+         <div class="col-md-12 total-card-mp">
+           <div class="row">
+
+            {{#if_eq device "mobile"}}
+              {{> mercadopago_mobile}}
+            {{else}}
+              {{> mercadopago_desktop}}
+            {{/if_eq}}
+            
+             
+           </div>
+         </div>
+       </div>
+
+        {{#if_eq device "mobile"}}
+          {{> mercadopago_box_mobile}}
+        {{else}}
+          {{> mercadopago_box_desktop}}
+        {{/if_eq}}
+       
+
+     </div>
+   </main>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="{{config.sourcePath}}/js/mercadopago.js"></script>
+
+{{> footer}}
+
+    
+<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{{config.sourcePath}}/brands/{{brand}}/css/mercadopago.css" type="text/css"> -->
+
+
+
+    

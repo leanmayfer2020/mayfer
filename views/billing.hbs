@@ -1,0 +1,149 @@
+{{> header}}
+<div id="cart" data-cartid="{{cart._id}}" class="displaynone"></div>
+	
+	<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+			<form class="leave-comment" method="POST" id="billingForm" name="billingForm">
+				<div class="row">	
+					<div class="col-md-6">
+						<h4 class="m-text26 p-b-36 p-t-15">Tus datos personales</h4>
+						
+						<div class="form-group">
+							<input type="text" name="first_name" id="first_name" placeholder="Nombre" class="form-control">
+							<input type="hidden" name="cart_id" value="{{cart_id}}">
+						</div>
+
+						<div class="form-group">
+							<input type="text" name="last_name" id="last_name" placeholder="Apellido" class="form-control">
+						</div>
+
+
+						<div class="form-group">
+							<input type="text" name="email" id="email" placeholder="Email" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<input type="text" name="phone" id="phone" placeholder="Telefono" class="form-control">
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								  <div class="form-group">
+								    <select class="form-control" name="document_type" id="document_type">
+										<option value="0">Tipo Documento</option>
+										<option value="DNI">DNI</option>
+										<option value="DNI">CI</option>
+										<option value="DNI">LE</option>
+										<option value="DNI">LC</option>
+								    </select>
+								  </div>
+							</div>
+							<input type="hidden" id="delivery_cost" name="delivery_cost" value="0">
+							<div class="col-md-4">
+								
+								<div class="form-group">
+									<input type="text" name="document_number" id="document_number" placeholder="Nro documento" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-4">
+								  <div class="form-group">
+								    <select class="form-control" name="gender" id="gender">
+										<option value="0">Genero</option>
+										<option value="Femenino">Femenino</option>
+										<option value="Masculino">Masculino</option>
+								    </select>
+								  </div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<h4 class="m-text26 p-b-36 p-t-15">La dirección de entrega</h4>
+
+						<div class="form-group">
+							<input type="text" name="state" id="state" placeholder="Provincia" value="Buenos Aires" disabled="disabled" class="form-control">
+						</div>
+
+						  <div class="form-group">
+						    <select class="form-control" name="city" id="city" placeholder="Piso">
+								<option value="0">Seleccione Localidad</option>
+								{{#each deliveries}}
+									<option value="{{this._id}}">{{this.city}}</option>
+								{{/each}}
+						    </select>
+						  </div>
+
+						<div class="form-group">
+							<input type="text" name="street_name" id="street_name" placeholder="Calle" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<input type="text" name="street_number" id="street_number" placeholder="Altura" class="form-control">
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<input type="text" name="floor" id="floor" placeholder="Piso" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<input type="text" name="room" id="room" placeholder="Dto" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<input type="text" type="text" name="zip_code" id="zip_code" placeholder="Código Postal" class="form-control">
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-md-12" style="margin-top: 20px;margin-bottom: 0px;">
+						<div class="form-group">
+							<label class="radio-inline">
+								<input type="radio" name="delivery_type" class="pickupBilling" id="delivery_type" value="pickup" checked>Retiro en Sucursal (Caseros)
+							</label>
+
+							{{#if_eq has_delivery true}}
+								<label class="radio-inline">
+									<input type="radio" name="delivery_type" class="deliveryBilling" id="delivery_type" value="domiciliary" >Envío a Domicilio con Mercado Envíos
+								</label>
+							{{/if_eq}}
+						</div>
+					</div>
+
+					{{#if_eq has_delivery false}}
+						<div class="col-md-12">
+							<div class="alert alert-primary" role="alert" style="height: 70px;">
+								<div class="col-md-2" style="float: left; width: 50px"><img src="{{config.sourcePath}}/brands/{{brand}}/images/info.svg" alt="info" width="35"></div>
+							  	<div class="col-md-10" style="float: left;">Este producto no puede enviarse a domicilio con Mercado Envíos por sus dimensiones. Podes avanzar con tu compra y luego coordinar un envío con nosotros.</div>
+							</div>
+						</div>
+					{{/if_eq}}
+					<div class="col-md-12">
+						<textarea class="form-control" name="message" placeholder="Comentarios adicionales"></textarea>
+					</div>
+
+					<div id="errorFormBilling" class="alert alert-danger" style="width: 100%;margin: 0 auto; margin-top: 0px; margin-bottom: 20px; display: none;">
+					    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+					    <strong>Error!</strong> Debes completar todos tus datos.
+					</div>
+
+					<div class="col-md-12 text-right" style="display: block; width: 100%">
+						<button type="button" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" style="display: inline-block;width: 180px;" id="billingFormSubmit">
+							Continuar
+						</button>
+					</div>
+
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+{{> footer}}
